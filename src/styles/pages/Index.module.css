@@ -1,0 +1,7 @@
+.wrapper {
+  display: grid;
+  grid-auto-flow: row;
+  grid-gap: 16px;
+}
+
+/*# sourceMappingURL=Index.module.css.map */

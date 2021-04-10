@@ -1,0 +1,37 @@
+.wrapper{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.column{
+  display: grid;
+  grid-auto-flow: row;
+  grid-gap: 16px;
+}
+
+.badge_wrapper{
+  display: flex;
+}
+
+.badge{
+  padding: 4px 16px;
+  border-radius: 6px;
+  display: flex;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #f0f0f0;
+}
+
+.task{
+  background-color: #f0f0f0;
+  padding: 16px 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.done{
+  background-color: #1199ee;
+  color: white;
+}
