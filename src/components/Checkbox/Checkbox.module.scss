@@ -1,0 +1,29 @@
+.checkbox{
+  // Disable nasty "blinking" in Webkit browser
+  -webkit-backface-visibility:  hidden;
+  -webkit-tap-highlight-color:  transparent;
+
+  // Disable text selection on double click
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+
+  cursor: pointer;
+  border-radius: 25%;
+  width: 20px;
+  height: 20px;
+  background: #ddd;
+  transition: 0.2s;
+  stroke: #1199EE;
+}
+
+.checked{
+  background: #f0f0f0;
+  transition: 0.2s;
+}
+
+.disabled{
+  background: #ddd;
+}

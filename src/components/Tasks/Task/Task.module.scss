@@ -1,0 +1,51 @@
+.task{
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-gap: 12px;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  padding: 16px 20px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.done{
+  background-color: #1199ee;
+  textarea{
+    color: white;
+  }
+
+  textarea::placeholder{
+    color: rgba(255, 255, 255, 0.7)
+  }
+
+  .remove{
+    color: white;
+  }
+}
+
+.textarea{
+  display: flex;
+  width: 100%;
+  resize: none;
+  padding: 0;
+  font-size: 20px;
+  font-weight: 700;
+  appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.remove{
+  cursor: pointer;
+  transition: 0.2s color;
+  color: gray;
+  height: 24px;
+  width: 24px;
+
+  &:hover{
+    color: #EE4444;
+  }
+}

@@ -1,0 +1,21 @@
+.wrapper{
+  min-height: 240px;
+  display: grid;
+  grid-template-columns: repeat(7, auto);
+  grid-template-rows: 1fr 20px;
+  grid-gap: 8px;
+}
+
+.column{
+  display: flex;
+  width: 100%;
+  padding: 12px;
+  background: rgba(#1199EE, 1);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  transition: 0.2s color;
+
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}

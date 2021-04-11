@@ -5,9 +5,16 @@
 }
 
 .column{
+  display: flex;
+  flex-direction: column;
+  grid-gap: 16px;
+}
+
+.tasks_container{
+  margin-top: 16px;
   display: grid;
   grid-auto-flow: row;
-  grid-gap: 16px;
+  grid-gap: 12px;
 }
 
 .badge_wrapper{
@@ -23,15 +30,25 @@
   background-color: #f0f0f0;
 }
 
-.task{
-  background-color: #f0f0f0;
-  padding: 16px 20px;
-  border-radius: 8px;
-  font-size: 20px;
-  font-weight: 700;
+.add_button_wrapper{
+  margin-top: 8px;
+  display: flex;
 }
 
-.done{
-  background-color: #1199ee;
-  color: white;
+.add_button{
+  cursor: pointer;
+  color: gray;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+
+  &:hover{
+    color: #1199EE;
+  }
+}
+
+.add_button_icon{
+  width: 24px;
+  height: 24px;
+  margin-right: 6px;
 }

@@ -9,8 +9,25 @@
 }
 
 .date{
+  position: relative;
   display: flex;
+
+}
+
+.select{
+  appearance: none;
   font-size: 48px;
   color: #1199EE;
   font-weight: 800;
+  border: none;
+  outline: none;
+}
+
+.yesterday{
+  position: absolute;
+  left: calc(-90px);
+  top: 10px;
+  font-size: 36px;
+
+  color: lightgray;
 }
