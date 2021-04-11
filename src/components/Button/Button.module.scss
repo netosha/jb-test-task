@@ -1,0 +1,35 @@
+
+.button{
+  // TODO: should be null css mixin
+  margin: 0;
+  border: none;
+
+  cursor: pointer;
+
+  //Disable nasty "blinking" in safari browser
+  -webkit-backface-visibility:  hidden;
+  -webkit-tap-highlight-color:  transparent;
+
+  font-size: 16px;
+  padding: 0.45em 1.5em;
+  border-radius: 8px;
+  color: white;
+  background: #1199EE;
+
+  &:focus{
+    outline: none;
+  }
+}
+
+.rounded{
+  border-radius: 2em;
+}
+
+.secondary{
+  background: #cccccc;
+}
+
+.disabled{
+  color: #000000;
+  background: #ddd;
+}

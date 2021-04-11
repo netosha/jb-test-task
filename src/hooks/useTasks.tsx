@@ -4,20 +4,19 @@ import { StorageTask, Task } from '../types';
 const TasksContext = React.createContext<{
   tasks: Task[] | null;
   setTasks: (tasks: Task[]) => void;
+  serializeTasks: (s: string) => Task[];
 }>({
   tasks: [],
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   setTasks: (d) => {},
+  serializeTasks: () => [],
 });
 
 export function TasksProvider({ children }: any) {
   const [tasks, setTasks] = React.useState<Task[] | null>(null);
 
-  const loadTasks = () => {
-    const rowTasks = JSON.parse(
-      localStorage.getItem('tasks') as string,
-    ) as StorageTask[];
-
+  const serializeTasks = (s: string) => {
+    const rowTasks = JSON.parse(s) as StorageTask[];
     const serializedTasks: Task[] = rowTasks.map((t) => ({
       ...t,
       date: new Date(t.date),
@@ -38,9 +37,12 @@ export function TasksProvider({ children }: any) {
     const localTasksString = window.localStorage.getItem('tasks');
     if (!localTasksString) {
       window.localStorage.setItem('tasks', JSON.stringify([]));
+      setTasks([]);
     } else {
       try {
-        const localTasks = loadTasks();
+        const localTasks = serializeTasks(
+          localStorage.getItem('tasks') as string,
+        );
         setTasks(localTasks);
       } catch (e) {
         console.log('Error while loading local tasks', e);
@@ -49,7 +51,7 @@ export function TasksProvider({ children }: any) {
   }, []);
 
   return (
-    <TasksContext.Provider value={{ tasks, setTasks }}>
+    <TasksContext.Provider value={{ tasks, setTasks, serializeTasks }}>
       {children}
     </TasksContext.Provider>
   );

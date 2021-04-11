@@ -3,7 +3,7 @@ import styles from '../styles/pages/Index.module.scss';
 import Tasks from '../components/Tasks';
 import Stats from '../components/Stats';
 
-export default function Statistics() {
+export default function StatsPage() {
   return (
     <div className={styles.wrapper}>
       <Stats />

@@ -13,7 +13,6 @@ export default function Tasks() {
   const { tasks, setTasks } = useTasks();
   const { date } = useDate();
   const { width } = useWindowSize();
-
   // Only for mobie
   const [tab, setTab] = React.useState<'todo' | 'done'>('todo');
 
@@ -77,8 +76,10 @@ export default function Tasks() {
     setTasks([...oldTasks]);
   };
 
+  console.log(window.innerWidth, 'lox');
+
   // Adopted for mobile devices
-  if (width! < 720) {
+  if ((width ?? window.innerWidth) < 720) {
     return (
       <div className={styles.wrapper} style={{ gridTemplateColumns: '1fr' }}>
         <div className={styles.column}>
@@ -170,7 +171,7 @@ export default function Tasks() {
       </div>
     );
   }
-
+  console.log(width);
   return (
     <div className={styles.wrapper}>
       <div className={styles.column}>
