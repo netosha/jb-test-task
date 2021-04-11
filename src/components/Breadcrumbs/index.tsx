@@ -31,6 +31,14 @@ export default function Breadcrumbs() {
       >
         <span>Help</span>
       </Link>
+      <Link
+        to="/utils"
+        className={cn(styles.item, {
+          [styles.active]: location.pathname === '/utils',
+        })}
+      >
+        <span>Utils</span>
+      </Link>
     </div>
   );
 }

@@ -6,6 +6,7 @@
 }
 
 .column{
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -19,6 +20,12 @@
   font-size: 24px;
   font-weight: bold;
   color: white;
+  position: relative;
+
+  @media (max-width: 720px) {
+    font-size: 16px;
+    min-height: 24px;
+  }
 }
 
 .label{
@@ -27,9 +34,16 @@
 
 .primary{
   padding: 12px;
+  @media (max-width: 720px) {
+    padding: 6px;
+
+  }
 }
 
 .inner{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   padding: 6px 12px;
   border-radius: 6px;
   margin-top: auto;

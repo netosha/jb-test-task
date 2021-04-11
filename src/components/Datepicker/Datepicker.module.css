@@ -43,6 +43,7 @@
   justify-content: center;
   font-weight: bold;
   margin-bottom: 4px;
+  color: #555555;
 }
 
 .calendar_day {
@@ -52,6 +53,11 @@
   align-items: center;
   justify-content: center;
   color: black;
+  transition: 0.2s;
+  border-radius: 4px;
+}
+.calendar_day:hover {
+  background: rgba(17, 153, 238, 0.1);
 }
 
 .calendar_day_today {

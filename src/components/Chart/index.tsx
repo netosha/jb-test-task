@@ -8,7 +8,6 @@ export default function Chart({
   data: { value: number; label: string; inner?: { value: number } }[];
 }) {
   const maxValue = Math.max(...data.map((x) => x.value), 0);
-
   return (
     <div
       className={styles.wrapper}
@@ -23,7 +22,10 @@ export default function Chart({
             alignItems: 'flex-end',
           }}
         >
-          <div
+          <motion.div
+            initial={{ height: 0 }}
+            animate={{ height: `${(c.value / maxValue) * 100}%` }}
+            exit={{ height: 0 }}
             className={styles.column}
             style={{
               height: `${(c.value / maxValue) * 100}%`,
@@ -39,10 +41,12 @@ export default function Chart({
                 className={styles.inner}
                 style={{ height: `${(c.inner.value / c.value) * 100}%` }}
               >
-                {c.inner?.value}
+                {/* Todo: separate to individual columns and make logic based on ref */}
+                {/* Hardcoded shit */}
+                {c.inner.value / c.value > 0.34 && c.inner?.value}
               </motion.div>
             )}
-          </div>
+          </motion.div>
         </motion.div>
       ))}
       {data.map((c, i) => (

@@ -7,12 +7,18 @@ import TaskCard from './Task';
 import { useDate } from '../../hooks/useDate';
 import { useTasks } from '../../hooks/useTasks';
 import { getRandomPlaceholder } from '../../utils';
+import useWindowSize from '../../hooks/useWindowSize';
 
 export default function Tasks() {
   const { tasks, setTasks } = useTasks();
   const { date } = useDate();
+  const { width } = useWindowSize();
+
+  // Only for mobie
+  const [tab, setTab] = React.useState<'todo' | 'done'>('todo');
 
   // TODO: Do skeleton here
+  // Case, when tasks are not loaded from localstorage
   if (tasks === null) {
     return (
       <div className={styles.wrapper}>
@@ -70,6 +76,100 @@ export default function Tasks() {
     );
     setTasks([...oldTasks]);
   };
+
+  // Adopted for mobile devices
+  if (width! < 720) {
+    return (
+      <div className={styles.wrapper} style={{ gridTemplateColumns: '1fr' }}>
+        <div className={styles.column}>
+          <div className={styles.task_title_wrapper}>
+            <div
+              className={cn(styles.badge, {
+                [styles.done_badge]: tab === 'todo',
+              })}
+              onClick={(e) => setTab('todo')}
+            >
+              To-do
+            </div>
+            <div
+              className={cn(styles.badge, {
+                [styles.done_badge]: tab === 'done',
+              })}
+              onClick={(e) => setTab('done')}
+            >
+              Done
+            </div>
+          </div>
+          <div className={styles.tasks_container}>
+            {tab === 'todo' && (
+              <>
+                {' '}
+                {todoTasks.map((t) => (
+                  <TaskCard
+                    key={t.id}
+                    task={t}
+                    onClick={() =>
+                      changeTask(t.id, {
+                        ...t,
+                        status: 'done',
+                        name: t.name ?? t.placeholder,
+                      })
+                    }
+                    onNameChange={(name) =>
+                      changeTask(t.id, { ...t, id: t.id, name })
+                    }
+                    onDelete={() => removeTask(t.id)}
+                  />
+                ))}
+                <motion.div
+                  layout
+                  key="add-new-task"
+                  onClick={addTask}
+                  className={styles.mobile_add_button}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className={styles.add_button_icon}
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                </motion.div>
+              </>
+            )}
+
+            {tab === 'done' && (
+              <>
+                {doneTasks.length === 0 && (
+                  <div style={{ color: 'gray', fontWeight: 600 }}>
+                    😕 No tasks yet
+                  </div>
+                )}
+                {doneTasks.map((t) => (
+                  <TaskCard
+                    key={t.id}
+                    task={t}
+                    onNameChange={(name) =>
+                      changeTask(t.id, { ...t, id: t.id, name })
+                    }
+                    onClick={() => changeTask(t.id, { ...t, status: 'todo' })}
+                    onDelete={() => removeTask(t.id)}
+                  />
+                ))}
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.wrapper}>
