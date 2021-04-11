@@ -16,6 +16,14 @@ This is simple todo list with required features:
 ![stats](https://i.imgur.com/uEXtQ6g.png)
 ![utils](https://i.imgur.com/XDjEnAx.png)
 
+## Install
+
+```
+npm i
+npm run-script start
+```
+
+
 ## Usage
 
 ### On desktop
@@ -33,13 +41,6 @@ A mobile version has two tabs (**todo** and **done**).
 As desktop version, by default, the task is filled with a random hint, which can be changed at any time.
 
 When you click on the checkbox, the task is removed from the list and goes to another one (**todo** -> **done**, **done** -> **todo**).
-
-### Install
-
-```
-npm i
-npm run-script start
-```
 
 
 ### Utils
