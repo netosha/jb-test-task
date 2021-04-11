@@ -5,7 +5,6 @@ import styles from './Breadcrumbs.module.scss';
 
 export default function Breadcrumbs() {
   const location = useLocation();
-  console.log(location);
   return (
     <div className={styles.wrapper}>
       <Link
