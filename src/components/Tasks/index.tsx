@@ -110,6 +110,9 @@ export default function Tasks() {
           </div>
         </div>
         <div className={styles.tasks_container}>
+          {doneTasks.length === 0 && (
+            <div style={{ color: 'gray' }}>No tasks yet</div>
+          )}
           <AnimatePresence>
             {doneTasks.map(t => (
               <TaskCard

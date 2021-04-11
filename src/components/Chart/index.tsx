@@ -67,7 +67,7 @@ export default function Chart() {
         </div>
       ))}
       {data.map((c, i) => (
-        <div>{c.label}</div>
+        <div className={styles.label}>{c.label}</div>
       ))}
     </div>
   )

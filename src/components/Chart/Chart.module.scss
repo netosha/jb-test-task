@@ -11,11 +11,16 @@
   width: 100%;
   padding: 12px;
   background: rgba(#1199EE, 1);
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  //border-top-left-radius: 8px;
+  //border-top-right-radius: 8px;
   transition: 0.2s color;
+  border-radius: 6px;
 
   font-size: 24px;
   font-weight: bold;
   color: white;
+}
+
+.label{
+  color: gray;
 }
