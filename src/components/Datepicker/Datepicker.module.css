@@ -4,11 +4,6 @@
   cursor: pointer;
 }
 
-.title {
-  font-weight: 700;
-  font-size: 36px;
-}
-
 .date {
   position: relative;
   display: flex;
@@ -21,6 +16,9 @@
   font-weight: 800;
   border: none;
   outline: none;
+}
+.select optgroup {
+  font-size: 16px;
 }
 
 .yesterday {

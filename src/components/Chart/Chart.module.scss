@@ -1,16 +1,16 @@
 .wrapper{
   min-height: 240px;
   display: grid;
-  grid-template-columns: repeat(7, auto);
   grid-template-rows: 1fr 20px;
   grid-gap: 8px;
 }
 
 .column{
   display: flex;
+  flex-direction: column;
   width: 100%;
-  padding: 12px;
-  background: rgba(#1199EE, 1);
+  min-height: 48px;
+  background: rgba(#ccc, 1);
   //border-top-left-radius: 8px;
   //border-top-right-radius: 8px;
   transition: 0.2s color;
@@ -23,4 +23,16 @@
 
 .label{
   color: gray;
+}
+
+.primary{
+  padding: 12px;
+}
+
+.inner{
+  padding: 6px 12px;
+  border-radius: 6px;
+  margin-top: auto;
+  background: #1199EE;
+  align-items: self-end;
 }

@@ -1,0 +1,20 @@
+.wrapper{
+    display: flex;
+    font-weight: 700;
+    font-size: 36px;
+}
+
+
+.item{
+    transition: 0.2s;
+    color: #bbb;
+    margin-right: 12px;
+
+    &:last-child{
+        margin-right: 0;
+    }
+}
+
+.active{
+    color: black;
+}

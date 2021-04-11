@@ -3,7 +3,8 @@ import styles from './Task.module.scss'
 import { motion } from 'framer-motion'
 import cn from 'classnames'
 import Checkbox from '../../Checkbox'
-import { Task } from '../types'
+import { Task } from '../../../types'
+import { getRandomPlaceholder } from '../../../utils'
 
 export default function TaskCard({
   task,
@@ -27,6 +28,7 @@ export default function TaskCard({
 
   return (
     <motion.div
+      layout='position'
       key={task.id}
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -38,7 +40,7 @@ export default function TaskCard({
         ref={textAreaRef}
         rows={1}
         className={styles.textarea}
-        placeholder={'Do homework'}
+        placeholder={task.placeholder}
         value={task.name}
         onChange={e => onNameChange?.(e.target.value)}
         style={{

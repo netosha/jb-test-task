@@ -1,57 +1,21 @@
 import React from 'react'
 import styles from './Chart.module.scss'
-import { offsetFromCurrentDay, getDateDay } from '../../utils'
+import { motion } from 'framer-motion'
+export default function Chart({
+  data,
+}: {
+  data: { value: number; label: string; inner?: { value: number } }[]
+}) {
+  const maxValue = Math.max(...data.map(x => x.value), 0)
 
-const data = [
-  {
-    value: 1,
-    label: offsetFromCurrentDay(-3).toLocaleString('en-us', {
-      weekday: 'short',
-    }),
-  },
-  {
-    value: 2,
-    label: offsetFromCurrentDay(-2).toLocaleString('en-us', {
-      weekday: 'short',
-    }),
-  },
-  {
-    value: 4,
-    label: offsetFromCurrentDay(-1).toLocaleString('en-us', {
-      weekday: 'short',
-    }),
-  },
-  {
-    value: 1,
-    label: getDateDay().toLocaleString('en-us', { weekday: 'short' }),
-  },
-  {
-    value: 1,
-    label: offsetFromCurrentDay(1).toLocaleString('en-us', {
-      weekday: 'short',
-    }),
-  },
-  {
-    value: 1,
-    label: offsetFromCurrentDay(2).toLocaleString('en-us', {
-      weekday: 'short',
-    }),
-  },
-  {
-    value: 1,
-    label: offsetFromCurrentDay(3).toLocaleString('en-us', {
-      weekday: 'short',
-    }),
-  },
-]
-
-const maxValue = Math.max(...data.map(x => x.value), 0)
-
-export default function Chart() {
   return (
-    <div className={styles.wrapper}>
+    <div
+      className={styles.wrapper}
+      style={{ gridTemplateColumns: `repeat(${data.length}, auto)` }}
+    >
       {data.map(c => (
-        <div
+        <motion.div
+          layout
           style={{
             height: '100%',
             display: 'flex',
@@ -60,11 +24,25 @@ export default function Chart() {
         >
           <div
             className={styles.column}
-            style={{ height: `${(c.value / maxValue) * 100}%` }}
+            style={{
+              height: `${(c.value / maxValue) * 100}%`,
+              minHeight: c.value > 0 ? 48 : 0,
+            }}
           >
-            {c.value}
+            {c.inner?.value !== c.value && (
+              <div className={styles.primary}>{c.value}</div>
+            )}
+            {c.value > 0 && c.inner && c.inner?.value > 0 && (
+              <motion.div
+                layout
+                className={styles.inner}
+                style={{ height: `${(c.inner.value / c.value) * 100}%` }}
+              >
+                {c.inner?.value}
+              </motion.div>
+            )}
           </div>
-        </div>
+        </motion.div>
       ))}
       {data.map((c, i) => (
         <div className={styles.label}>{c.label}</div>

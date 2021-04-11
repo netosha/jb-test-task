@@ -36,7 +36,11 @@
   background: none;
   border: none;
   outline: none;
-}
+
+
+  // Chrome text fix
+  font-family: Inter, -apple-system, Inter, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;}
 
 .remove{
   cursor: pointer;

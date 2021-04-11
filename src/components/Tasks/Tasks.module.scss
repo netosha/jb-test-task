@@ -17,8 +17,16 @@
   grid-gap: 12px;
 }
 
-.badge_wrapper{
+.task_title_wrapper{
   display: flex;
+
+  & > div{
+    margin-right: 8px;
+
+    &:last-child{
+      margin-right: 0;
+    }
+  }
 }
 
 .badge{
@@ -28,6 +36,18 @@
   font-size: 16px;
   font-weight: 700;
   background-color: #f0f0f0;
+}
+
+.done_badge{
+  background: #1199EE;
+  color: white;
+}
+
+.count{
+  display: flex;
+  align-items: center;
+  color: gray;
+  font-weight: bold;
 }
 
 .add_button_wrapper{
@@ -41,7 +61,7 @@
   display: flex;
   align-items: center;
   transition: color 0.2s;
-
+  font-weight: 600;
   &:hover{
     color: #1199EE;
   }
