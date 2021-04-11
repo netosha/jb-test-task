@@ -1,6 +1,9 @@
 .wrapper{
-  display: grid;
-  grid-auto-flow: row;
-  grid-gap: 16px;
+  display: flex;
+  flex-direction: column;
   height: 100%;
+
+  & > div{
+    margin-bottom: 16px;
+  }
 }

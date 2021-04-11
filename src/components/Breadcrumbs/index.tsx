@@ -1,15 +1,15 @@
-import React from 'react'
-import cn from 'classnames'
-import styles from './Breadcrumbs.module.scss'
-import { Link, useLocation } from 'react-router-dom'
+import React from 'react';
+import cn from 'classnames';
+import { Link, useLocation } from 'react-router-dom';
+import styles from './Breadcrumbs.module.scss';
 
 export default function Breadcrumbs() {
-  const location = useLocation()
-  console.log(location)
+  const location = useLocation();
+  console.log(location);
   return (
     <div className={styles.wrapper}>
       <Link
-        to='/'
+        to="/"
         className={cn(styles.item, {
           [styles.active]: location.pathname === '/',
         })}
@@ -17,7 +17,7 @@ export default function Breadcrumbs() {
         <span>Tasks</span>
       </Link>
       <Link
-        to='/stats'
+        to="/stats"
         className={cn(styles.item, {
           [styles.active]: location.pathname === '/stats',
         })}
@@ -25,7 +25,7 @@ export default function Breadcrumbs() {
         <span>Stats</span>
       </Link>
       <Link
-        to='/help'
+        to="/help"
         className={cn(styles.item, {
           [styles.active]: location.pathname === '/help',
         })}
@@ -33,5 +33,5 @@ export default function Breadcrumbs() {
         <span>Help</span>
       </Link>
     </div>
-  )
+  );
 }

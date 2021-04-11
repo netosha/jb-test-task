@@ -40,11 +40,74 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "arrowParens": "always"
+  },
   "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
     "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+      "airbnb",
+      "plugin:prettier/recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:import/typescript"
+    ],
+    "rules": {
+      "no-use-before-define": "off",
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "devDependencies": [
+            "**/*.stories.ts",
+            "**/*.stories.tsx"
+          ]
+        }
+      ],
+      "@typescript-eslint/no-use-before-define": [
+        "error"
+      ],
+      "no-shadow": "off",
+      "@typescript-eslint/no-shadow": [
+        "error"
+      ],
+      "react/jsx-filename-extension": 0,
+      "react/prop-types": 0,
+      "react/require-default-props": 0,
+      "react/destructuring-assignment": 0,
+      "react/jsx-one-expression-per-line": 0,
+      "max-len": [
+        "error",
+        {
+          "code": 120,
+          "ignoreStrings": true,
+          "ignoreComments": true,
+          "ignoreTemplateLiterals": true
+        }
+      ],
+      "implicit-arrow-linebreak": 0,
+      "jsx-a11y/accessible-emoji": 0,
+      "no-unused-vars": 1,
+      "jsx-a11y/click-events-have-key-events": 0,
+      "jsx-a11y/no-static-element-interactions": 0,
+      "react/jsx-props-no-spreading": 1,
+      "@typescript-eslint/explicit-function-return-type": 0,
+      "@typescript-eslint/no-var-requires": 0,
+      "react/jsx-curly-newline": 0,
+      "import/extensions": [
+        "error",
+        "ignorePackages",
+        {
+          "js": "never",
+          "jsx": "never",
+          "ts": "never",
+          "tsx": "never"
+        }
+      ]
+    }
   },
   "browserslist": {
     "production": [

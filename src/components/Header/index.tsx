@@ -1,14 +1,15 @@
-import React from 'react'
-import styles from './Header.module.scss'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styles from './Header.module.scss';
+
 export default function Header() {
   return (
     <header className={styles.wrapper}>
       <div className={styles.inner}>
-        <Link to='/'>
+        <Link to="/">
           <div className={styles.logo} />
         </Link>
       </div>
     </header>
-  )
+  );
 }

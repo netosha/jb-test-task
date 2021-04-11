@@ -1,25 +1,19 @@
 .wrapper{
+  position: relative;
   display: flex;
   flex-direction: column;
-  cursor: pointer;
 }
 
 .date{
+  z-index: 4;
   position: relative;
   display: flex;
-
-}
-
-.select{
   appearance: none;
   font-size: 48px;
   color: #1199EE;
   font-weight: 800;
   border: none;
   outline: none;
-
-  optgroup { font-size:16px; }
-
 }
 
 .yesterday{
@@ -29,4 +23,45 @@
   font-size: 36px;
 
   color: lightgray;
+}
+
+.calendar{
+  z-index: 5;
+   display: grid;
+  grid-column-gap: 4px;
+  grid-row-gap: 4px;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-row: repeat(auto-fill, 50px);
+  padding: 12px;
+  border-radius: 8px;
+  background: #eee;
+  position: absolute;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 6px 8px 0px, rgba(0, 0, 0, 0.04) 0px 0px 0px 1px;
+
+}
+
+.calendar_head{
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.calendar_day{
+  padding: 4px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+.calendar_day_today{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 4px;
+  color: white;
+  background: #1199EE;
 }

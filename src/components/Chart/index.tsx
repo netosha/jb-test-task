@@ -1,19 +1,20 @@
-import React from 'react'
-import styles from './Chart.module.scss'
-import { motion } from 'framer-motion'
+import React from 'react';
+import { motion } from 'framer-motion';
+import styles from './Chart.module.scss';
+
 export default function Chart({
   data,
 }: {
-  data: { value: number; label: string; inner?: { value: number } }[]
+  data: { value: number; label: string; inner?: { value: number } }[];
 }) {
-  const maxValue = Math.max(...data.map(x => x.value), 0)
+  const maxValue = Math.max(...data.map((x) => x.value), 0);
 
   return (
     <div
       className={styles.wrapper}
       style={{ gridTemplateColumns: `repeat(${data.length}, auto)` }}
     >
-      {data.map(c => (
+      {data.map((c) => (
         <motion.div
           layout
           style={{
@@ -48,5 +49,5 @@ export default function Chart({
         <div className={styles.label}>{c.label}</div>
       ))}
     </div>
-  )
+  );
 }
