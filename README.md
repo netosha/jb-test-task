@@ -1,46 +1,65 @@
-# Getting Started with Create React App
+# Jetbrains Internship Qodana test task
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is specially prepared for Jetbrains Internship in Qodana Frontend
 
-## Available Scripts
+This is simple todo list with required features:
+* Task can be marked as **done**
+* Read from file *(in my implementation it can be imported from [utils page](https://jb-test-task.vercel.app/utils))*
+* Reloading the page should not affect the information
+* Separate tabs for todos and done *(implemented it in a mobile version, desktop is only single-board)*
+* [Bar chart](https://jb-test-task.vercel.app/stats) with per-days stats.
+## Preview
 
-In the project directory, you can run:
+[Vercel preview](https://jb-test-task.vercel.app)
 
-### `yarn start`
+![main](https://i.imgur.com/DxDwoU6.png)
+![stats](https://i.imgur.com/uEXtQ6g.png)
+![utils](https://i.imgur.com/XDjEnAx.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Usage
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### On desktop
 
-### `yarn test`
+A desktop version has one board with to columns. Every task can be edited and removed from any column.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+By default, the task is filled with a random hint, which can be changed at any time.
 
-### `yarn build`
+Task can be done and undone easily by pressing checkbox on each task card.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### On mobile
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+A mobile version has two tabs (**todo** and **done**).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+As desktop version, by default, the task is filled with a random hint, which can be changed at any time.
 
-### `yarn eject`
+When you click on the checkbox, the task is removed from the list and goes to another one (**todo** -> **done**, **done** -> **todo**).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Install
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+npm i
+npm run-script start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Utils
 
-## Learn More
+In [utils page](https://jb-test-task.vercel.app/utils) you can clear, view and paste your own task raw data (for example, when you migrate from device)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Task data stored as JSON of array of **Task** object
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Task object**
+```
+Task {
+  id: number;
+  name?: string;
+  status: 'todo' | 'done';
+  date: Date;
+  placeholder?: string;
+}
+```
+
+For example
+```
+[{"id":1618169893584,"status":"done","date":"2021-04-19T21:00:00.000Z","placeholder":"Jump the enemy","name":"wad"},{"id":1618169896100,"status":"done","date":"2021-04-19T21:00:00.000Z","placeholder":"Ask to jig","name":"Ask to jig"}]
+```
