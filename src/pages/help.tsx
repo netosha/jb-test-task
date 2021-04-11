@@ -7,7 +7,12 @@ export default function Help() {
       <div className={styles.card}>
         <span className={styles.card_title}>
           Check{' '}
-          <a href="https://google.com" style={{ color: '#0099ff' }}>
+          <a
+            href="https://github.com/netosha/jb-test-task#readme"
+            rel="noreferrer"
+            target="_blank"
+            style={{ color: '#0099ff' }}
+          >
             README.MD
           </a>
         </span>

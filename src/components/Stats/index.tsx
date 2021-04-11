@@ -33,6 +33,11 @@ export default function Stats() {
 
   return (
     <div style={{ marginTop: 32, maxWidth: 640 }}>
+      {data.filter((x) => x.value > 0).length === 0 && (
+        <span style={{ color: 'gray' }}>
+          🧐 No data available. Add any task.
+        </span>
+      )}
       <Chart data={data.filter((x) => x.value > 0)} />
     </div>
   );
